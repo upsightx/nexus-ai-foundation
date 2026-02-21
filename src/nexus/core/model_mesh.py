@@ -306,6 +306,35 @@ class ModelMesh:
         # Mock响应（测试用）
         return await self._mock_invoke(model, messages)
 
+    async def _mock_invoke(
+        self,
+        model: str,
+        messages: List[Dict[str, str]]
+    ) -> ModelResponse:
+        """Mock响应"""
+        import time
+        start = time.time()
+        
+        # 模拟延迟
+        await asyncio.sleep(0.05)
+        
+        # 生成mock响应
+        last_msg = messages[-1]["content"] if messages else ""
+        response = f"[{model}] Response to: {last_msg[:30]}..."
+        
+        latency = (time.time() - start) * 1000
+        
+        return ModelResponse(
+            content=response,
+            model=model,
+            usage={
+                "input_tokens": len(str(messages)) // 4,
+                "output_tokens": len(response) // 4
+            },
+            finish_reason="stop",
+            latency_ms=latency
+        )
+
 
 class MockProvider:
     """Mock provider for testing"""
