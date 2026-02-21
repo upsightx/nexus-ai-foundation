@@ -26,6 +26,12 @@ Nexus AI Foundation 是一个完整的AI-Native系统框架，专为每月100亿
 ## 📦 安装
 
 ```bash
+pip install nexus-ai
+```
+
+或者从源码安装：
+
+```bash
 pip install -e .
 ```
 
