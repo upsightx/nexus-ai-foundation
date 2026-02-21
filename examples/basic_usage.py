@@ -5,7 +5,7 @@ Nexus AI Foundation - Examples
 
 # ========== Example 1: 简单对话 ==========
 """
-from src.nexus import NexusAI
+from nexus import NexusAI
 import asyncio
 
 async def chat_example():
@@ -28,7 +28,7 @@ asyncio.run(chat_example())
 
 # ========== Example 2: 智能路由 ==========
 """
-from src.nexus import NexusAI
+from nexus import NexusAI
 import asyncio
 
 async def router_example():
@@ -50,7 +50,7 @@ asyncio.run(router_example())
 
 # ========== Example 3: 思维图问题求解 ==========
 """
-from src.nexus import NexusAI
+from nexus import NexusAI
 import asyncio
 
 async def got_example():
@@ -73,7 +73,7 @@ asyncio.run(got_example())
 
 # ========== Example 4: 工具使用 ==========
 """
-from src.nexus import NexusAI
+from nexus import NexusAI
 import asyncio
 
 async def tool_example():
@@ -98,7 +98,7 @@ asyncio.run(tool_example())
 
 # ========== Example 5: 记忆系统 ==========
 """
-from src.nexus import NexusAI
+from nexus import NexusAI
 import asyncio
 
 async def memory_example():
@@ -120,8 +120,8 @@ asyncio.run(memory_example())
 
 # ========== Example 6: 多智能体协作 ==========
 """
-from src.nexus import NexusAI
-from src.nexus.agents import AgentSwarm, AgentRole
+from nexus import NexusAI
+from nexus.agents import AgentSwarm, AgentRole
 import asyncio
 
 async def agent_example():
@@ -159,7 +159,7 @@ asyncio.run(agent_example())
 
 # ========== Example 7: MCP协议 ==========
 """
-from src.nexus.tools.mcp import MCPClient
+from nexus.tools.mcp import MCPClient
 import asyncio
 
 async def mcp_example():
@@ -183,7 +183,7 @@ asyncio.run(mcp_example())
 
 # ========== Example 8: Token预算管理 ==========
 """
-from src.nexus.core import TokenBudget, QuotaManager, BudgetStrategy
+from nexus.core import TokenBudget, QuotaManager, BudgetStrategy
 
 # 创建预算
 budget = TokenBudget(
@@ -207,7 +207,7 @@ print(f"告警: {quota.should_alert(0.9)}")
 
 # ========== Example 9: 模型选择 ==========
 """
-from src.nexus.core import ModelMesh, ModelCapability, MockProvider
+from nexus.core import ModelMesh, ModelCapability, MockProvider
 
 mesh = ModelMesh()
 
@@ -239,7 +239,7 @@ print(f"低成本代码模型: {cheap_code.name}")
 
 # ========== Example 10: 完整工作流 ==========
 """
-from src.nexus import NexusAI
+from nexus import NexusAI
 import asyncio
 
 async def full_workflow():

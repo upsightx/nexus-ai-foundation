@@ -1,105 +1,26 @@
 # Nexus AI Foundation
-## 核心Python包
 
-```toml
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "nexus-ai"
 version = "0.1.0"
-description = "AI-Native Cloud Platform with Unlimited Model Access"
+description = "AI-Native Cloud Platform with 100B+ Tokens/Month"
 readme = "README.md"
 requires-python = ">=3.11"
-
 dependencies = [
     "fastapi>=0.109.0",
     "uvicorn[standard]>=0.27.0",
     "pydantic>=2.5.0",
-    "pydantic-settings>=2.1.0",
     "httpx>=0.26.0",
     "aiohttp>=3.9.0",
-    "tenacity>=8.2.0",
-    "tiktoken>=0.5.0",
-    "qdrant-client>=1.7.0",
-    "redis>=5.0.0",
-    "python-dotenv>=1.0.0",
     "loguru>=0.7.0",
-    "structlog>=24.1.0",
-    "pytest>=8.0.0",
-    "pytest-asyncio>=0.23.0",
-    "pytest-cov>=4.1.0",
 ]
 
 [project.optional-dependencies]
-dev = [
-    "ruff>=0.1.0",
-    "mypy>=1.8.0",
-    "pre-commit>=3.7.0",
-]
+dev = ["pytest>=8.0.0", "pytest-asyncio>=0.23.0"]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.ruff]
-target-version = "py311"
-line-length = 100
-
-[tool.ruff.lint]
-select = ["E", "F", "I", "N", "W", "UP"]
-ignore = ["E501"]
-
-[tool.pytest.ini_options]
-asyncio_mode = "auto"
-testpaths = ["tests"]
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/nexus"]
-```
-
-```plaintext
-## 目录结构
-
-```
-nexus-ai/
-├── src/
-│   └── nexus/
-│       ├── __init__.py
-│       ├── core/
-│       │   ├── __init__.py
-│       │   ├── model_mesh.py      # 模型路由网格
-│       │   ├── task_decomposer.py # 任务分解引擎
-│       │   ├── context_engine.py  # 上下文管理
-│       │   └── quota_manager.py   # 配额管理
-│       ├── agents/
-│       │   ├── __init__.py
-│       │   ├── base.py            # 基础智能体
-│       │   ├── swarm.py           # 智能体协作群
-│       │   └── roles.py           # 预定义角色
-│       ├── tools/
-│       │   ├── __init__.py
-│       │   ├── registry.py        # 工具注册
-│       │   ├── built_in.py        # 内置工具
-│       │   └── sandbox.py         # 沙箱执行
-│       ├── api/
-│       │   ├── __init__.py
-│       │   ├── routes.py          # API路由
-│       │   ├── models.py          # Pydantic模型
-│       │   └── middleware.py      # 中间件
-│       ├── storage/
-│       │   ├── __init__.py
-│       │   ├── vector.py          # 向量存储
-│       │   ├── cache.py           # 缓存层
-│       │   └── memory.py          # 记忆存储
-│       └── utils/
-│           ├── __init__.py
-│           ├── logging.py         # 日志配置
-│           └── metrics.py         # 指标收集
-├── tests/
-├── config/
-├── docs/
-├── examples/
-├── docker/
-├── k8s/
-├── README.md
-├── LICENSE
-└── pyproject.toml
-```
+[tool.setuptools.packages.find]
+where = ["src"]

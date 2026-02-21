@@ -32,7 +32,7 @@ pip install -e .
 ## 🚀 快速开始
 
 ```python
-from src.nexus import NexusAI
+from nexus import NexusAI
 import asyncio
 
 async def main():
