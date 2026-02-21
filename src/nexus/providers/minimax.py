@@ -15,16 +15,48 @@ MINIMAX_BASE_URL = "https://api.minimax.chat/v1"
 class MiniMaxProvider:
     """MiniMax API Provider
     
-    支持的模型:
-    - abab6.5s-chat (推荐)
+    支持的模型 (2024):
+    - MiniMax-M2.5 (最新旗舰模型) ⭐
+    - MiniMax-M2.5-highspeed
+    - MiniMax-M2.1
+    - MiniMax-M2.1-highspeed
+    - MiniMax-M2
+    - abab6.5s-chat
     - abab6.5g-chat
-    - abab6-chat
     """
     
     MODELS = {
+        # M2.5 系列 (最新旗舰)
+        "MiniMax-M2.5": {
+            "name": "MiniMax-M2.5", 
+            "context": 200000,
+            "description": "最新旗舰模型，代码生成和推理能力最强"
+        },
+        "MiniMax-M2.5-highspeed": {
+            "name": "MiniMax-M2.5-highspeed", 
+            "context": 200000,
+            "description": "M2.5高速版本"
+        },
+        # M2.1 系列
+        "MiniMax-M2.1": {
+            "name": "MiniMax-M2.1", 
+            "context": 100000,
+            "description": "多语言编程专家"
+        },
+        "MiniMax-M2.1-highspeed": {
+            "name": "MiniMax-M2.1-highspeed", 
+            "context": 100000,
+            "description": "M2.1高速版本"
+        },
+        # M2
+        "MiniMax-M2": {
+            "name": "MiniMax-M2", 
+            "context": 200000,
+            "description": "Agent能力，函数调用，高级推理"
+        },
+        # abab 系列
         "abab6.5s-chat": {"name": "abab6.5s-chat", "context": 245760},
         "abab6.5g-chat": {"name": "abab6.5g-chat", "context": 245760},
-        "abab6-chat": {"name": "abab6-chat", "context": 245760},
     }
     
     def __init__(self, api_key: str = None):
